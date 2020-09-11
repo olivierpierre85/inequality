@@ -1,0 +1,11 @@
+.people-container {
+    display: flex;
+    padding:10px;
+    flex-flow: row wrap;
+  }
+  
+  .people-container-left {
+    display: flex;
+    padding:10px;
+    flex-flow: row-reverse wrap;
+  }
