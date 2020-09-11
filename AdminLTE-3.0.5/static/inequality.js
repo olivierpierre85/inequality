@@ -35,18 +35,14 @@ $( document ).ready(function() {
         if(direction){
             var title_card = `
             <div class="info-box mb-3 bg-` + color +  `">
-                <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
+                
                 <div class="info-box-content">
-                <span class="info-box-text">
-                ` + title +  `
-                </span>
-                <span class="info-box-number">Monthly Salary : ` + monthly +  `</span>
-                <div class="progress">
-                    <div class="progress-bar" style="width: ` + ratio +  `%"></div>
-                </div>
-                <span class="progress-description">
-                        <span class="top1-total-value">` + ratio +  `</span>% of Total Revenue
+                    <span class="info-box-text text-right">
+                    ` + title +  `
                     </span>
+                    <span class="info-box-number" style="font-size:xxx-large;">$ ` 
+                    + monthly.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); +  
+                    `</span>
                 </div>
     
                 <!-- /.info-box-content -->
@@ -56,7 +52,7 @@ $( document ).ready(function() {
         var title_card = `
             <div class="info-box mb-3 bg-` + color +  `">
                 <div class="info-box-content text-right">
-                <span class="info-box-text">
+                <span class="info-box-text text-left">
                 ` + title +  `
                 </span>
                 <span class="info-box-number">Monthly Salary : ` + monthly +  `</span>
