@@ -101,7 +101,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Income Inequality</h5>
+                <h5 class="card-title">Monthly Income Inequality - Representation for 100 People</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -113,10 +113,6 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                       <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
                     </div>
                   </div>
                   <button type="button" class="btn btn-tool" data-card-widget="remove">
@@ -127,97 +123,78 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-8">
-                    <p class="text-center">
-                      <strong>USA 2019 VS Belgium 2017</strong>
-                    </p>
-                    <div class="people_chart">
-                      <div class="row">
-                        <div class="col-1"></div>
-                        <div class="col-10">
-                          <div class="row">
-                            <div class="col">
-                              <div class="people-container-left" id="top1usa"></div>
-                            </div>
-                            <div class="col">
-                              <div class="people-container" id="top1"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="people-container-left" id="top9usa"></div>
-                            </div>
-                            <div class="col">
-                              <div class="people-container container" id="top9"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="people-container-left" id="top40usa"></div>
-                            </div>				
-                            <div class="col">
-                              <div class="people-container" id="top40"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="people-container-left" id="bottom50usa"></div>
-                            </div>
-                            <div class="col">
-                              <div class="people-container" id="bottom50"></div>
-                            </div>
-                          </div>		
+                  <div class="col-md-6">
+                    <div class="btn-group country-left">
+                      <button type="button" class="btn btn-default btn-flat ">Belgium 2017</button>
+                      <button type="button" class="btn btn-default btn-flat  dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                        <span class="sr-only">Toggle Dropdown</span>
+                        <div class="dropdown-menu" role="menu">
+                          <a class="dropdown-item" href="#">TODO</a>
                         </div>
-                        <div class="col-1"></div>
-                      </div>
-                    </div>
-                    <!-- /.chart-responsive -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-md-4">
-                    <p class="text-center">
-                      <strong>Average Monthly Salary (before taxes)</strong>
-                    </p>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="info-box mb-3 bg-success">
-                          <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
-            
-                          <div class="info-box-content">
-                            <span class="info-box-text">Belgium TOP 1%</span>
-                            <span class="info-box-number">5,200</span>
-                            <div class="progress">
-                              <div class="progress-bar" style="width: 50%"></div>
-                            </div>
-                            <span class="progress-description">
-                                  <span class="top1-total-value"></span>% of Total Revenue
-                                </span>
-                          </div>
-                          <!-- /.info-box-content -->
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="info-box mb-3 bg-success">
-                          <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
-            
-                          <div class="info-box-content">
-                            <span class="info-box-text">Belgium TOP 1%</span>
-                            <span class="info-box-number">5,200</span>
-                            <div class="progress">
-                              <div class="progress-bar" style="width: 50%"></div>
-                            </div>
-                            <span class="progress-description">
-                                  <span class="top1-total-value"></span>% of Total Revenue
-                                </span>
-                          </div>
-                          <!-- /.info-box-content -->
-                        </div>
-                      </div>
+                      </button>
                     </div>
                   </div>
-                  <!-- /.col -->
+                  <div class="col-md-6">
+                    <div class="btn-group btn-flat country-right">
+                      <button type="button" class="btn btn-default btn-flat ">USA 2019</button>
+                      <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                        <span class="sr-only">Toggle Dropdown</span>
+                        <div class="dropdown-menu" role="menu">
+                          <a class="dropdown-item" href="#">TODO</a>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <!-- /.row -->
+                <div class="people_chart py-3">            
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col">
+                          <div id="top1_title"></div>
+                          <div class="people-container-left" id="top1"></div>
+                        </div>
+                        <div class="col">
+                          <div id="top1_title_right"></div>
+                          <div class="people-container" id="top1_right"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="top9_title"></div>
+                          <div class="people-container-left" id="top9"></div>
+                        </div>
+                        <div class="col">
+                          <div id="top9_title_right"></div>
+                          <div class="people-container container" id="top9_right"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="top40_title"></div>
+                          <div class="people-container-left" id="top40"></div>
+                        </div>				
+                        <div class="col">
+                          <div id="top40_title_right"></div>
+                          <div class="people-container" id="top40_right"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="bottom50_title"></div>
+                          <div class="people-container-left" id="bottom50"></div>
+                        </div>
+                        <div class="col">
+                          <div id="bottom50_title_right"></div>
+                          <div class="people-container" id="bottom50_right"></div>
+                        </div>
+                      </div>		
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
+                </div>
+                <!-- /.chart-responsive -->
               </div>
             </div>
             <!-- /.card -->
