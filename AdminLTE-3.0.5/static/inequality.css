@@ -35,3 +35,7 @@
     position: relative;
     color: #fff;
   }
+
+  .info-box .salary-box{
+    display:inline;
+  }

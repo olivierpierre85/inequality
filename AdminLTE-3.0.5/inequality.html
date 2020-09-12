@@ -101,6 +101,31 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
+                <h5 class="card-title">Choose two countries and dates to compare</h5>
+              </div>
+                <div class="card-body">
+                  <form role="form">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <!-- select -->
+                        <div class="form-group">
+                          <select id="country-list" class="form-control country-list">
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <select id="country-list-right" class="form-control country-list">
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
                 <h5 class="card-title">Monthly Income Inequality - Representation for 100 People</h5>
 
                 <div class="card-tools">
@@ -120,80 +145,64 @@
                   </button>
                 </div>
               </div>
+
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="btn-group country-left">
-                      <button type="button" class="btn btn-default btn-flat ">Belgium 2017</button>
-                      <button type="button" class="btn btn-default btn-flat  dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                        <span class="sr-only">Toggle Dropdown</span>
-                        <div class="dropdown-menu" role="menu">
-                          <a class="dropdown-item" href="#">TODO</a>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="btn-group btn-flat country-right">
-                      <button type="button" class="btn btn-default btn-flat ">USA 2019</button>
-                      <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                        <span class="sr-only">Toggle Dropdown</span>
-                        <div class="dropdown-menu" role="menu">
-                          <a class="dropdown-item" href="#">TODO</a>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="people_chart py-3">            
+                <div class="people_chart py-3">    
+                  <p class="text-center">
+                    <strong>For 100 people, the average MONTHLY salary would be :</strong>
+                  </p>        
                   <div class="row">
                     <div class="col-2"></div>
                     <div class="col-8">
                       <div class="row">
                         <div class="col">
                           <div id="top1_title"></div>
-                          <div class="progress" style="height:60px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <span class="progress-label" style="font-size:xxx-large;" >$ 91 485</span>
-                          </div>
                           <div class="people-container-left" id="top1"></div>
+                          <div class="people-container-left" id="top1_cash"></div>
                         </div>
                         <div class="col">
                           <div id="top1_title_right"></div>
                           <div class="people-container" id="top1_right"></div>
+                          <div class="people-container" id="top1_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="top9_title"></div>
                           <div class="people-container-left" id="top9"></div>
+                          <div class="people-container-left" id="top9_cash"></div>
                         </div>
                         <div class="col">
                           <div id="top9_title_right"></div>
                           <div class="people-container container" id="top9_right"></div>
+                          <div class="people-container container" id="top9_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="top40_title"></div>
                           <div class="people-container-left" id="top40"></div>
+                          <div class="people-container-left" id="top40_cash"></div>
                         </div>				
                         <div class="col">
                           <div id="top40_title_right"></div>
                           <div class="people-container" id="top40_right"></div>
+                          <div class="people-container" id="top40_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="bottom50_title"></div>
                           <div class="people-container-left" id="bottom50"></div>
+                          <div class="people-container-left" id="bottom50_cash"></div>
                         </div>
                         <div class="col">
                           <div id="bottom50_title_right"></div>
                           <div class="people-container" id="bottom50_right"></div>
+                          <div class="people-container" id="bottom50_right_cash"></div>
                         </div>
-                      </div>		
+                      </div>
                     </div>
                     <div class="col-2"></div>
                   </div>
