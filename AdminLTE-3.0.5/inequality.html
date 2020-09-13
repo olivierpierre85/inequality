@@ -90,6 +90,11 @@
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
+        <div class="row mb-2">
+          <div class="col-sm-12 text-center">
+            <h2 class="m-0 text-dark">How does Income Inequality looks like for 100 People ? </h2>
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -126,8 +131,7 @@
             </div>
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Income Inequality - Representation for 100 People</h5>
-
+                <h5 class="card-title">Average Monthly Income - Representation for 100 People</h5>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -150,7 +154,7 @@
               <div class="card-body">
                 <div class="people_chart py-3">    
                   <p class="text-center">
-                    <strong>For 100 people, the average MONTHLY salary would be :</strong>
+                    <strong>If you pick 100 random people, the average MONTHLY salary would be :</strong>
                   </p>        
                   <div class="row">
                     <div class="col-2"></div>
@@ -159,48 +163,40 @@
                         <div class="col">
                           <div id="top1_title"></div>
                           <div class="people-container-left" id="top1"></div>
-                          <div class="people-container-left" id="top1_cash"></div>
                         </div>
                         <div class="col">
                           <div id="top1_title_right"></div>
                           <div class="people-container" id="top1_right"></div>
-                          <div class="people-container" id="top1_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="top9_title"></div>
                           <div class="people-container-left" id="top9"></div>
-                          <div class="people-container-left" id="top9_cash"></div>
                         </div>
                         <div class="col">
                           <div id="top9_title_right"></div>
                           <div class="people-container container" id="top9_right"></div>
-                          <div class="people-container container" id="top9_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="top40_title"></div>
                           <div class="people-container-left" id="top40"></div>
-                          <div class="people-container-left" id="top40_cash"></div>
                         </div>				
                         <div class="col">
                           <div id="top40_title_right"></div>
                           <div class="people-container" id="top40_right"></div>
-                          <div class="people-container" id="top40_right_cash"></div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <div id="bottom50_title"></div>
                           <div class="people-container-left" id="bottom50"></div>
-                          <div class="people-container-left" id="bottom50_cash"></div>
                         </div>
                         <div class="col">
                           <div id="bottom50_title_right"></div>
                           <div class="people-container" id="bottom50_right"></div>
-                          <div class="people-container" id="bottom50_right_cash"></div>
                         </div>
                       </div>
                     </div>
@@ -211,9 +207,89 @@
               </div>
             </div>
             <!-- /.card -->
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Income Repartition - group by class (1% Richest, 9% Rich, 40% Middle Class, 50% Lower class</h5>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                      <i class="fas fa-wrench"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                      <a href="#" class="dropdown-item">Action</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="cash_chart py-3">  
+                  <div id="income-repartition-progress"> 
+                    <p class="text-center">
+                      <strong>EACH MONTH:</strong>
+                    </p>    
+                  </div>     
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col">
+                          <div id="top1_title_cash"></div>
+                          <div class="people-container-left" id="top1_cash"></div>
+                        </div>
+                        <div class="col">
+                          <div id="top1_title_right_cash"></div>
+                          <div class="people-container" id="top1_right_cash"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="top9_title_cash"></div>
+                          <div class="people-container-left" id="top9_cash"></div>
+                        </div>
+                        <div class="col">
+                          <div id="top9_title_right_cash"></div>
+                          <div class="people-container container" id="top9_right_cash"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="top40_title_cash"></div>
+                          <div class="people-container-left" id="top40_cash"></div>
+                        </div>				
+                        <div class="col">
+                          <div id="top40_title_right_cash"></div>
+                          <div class="people-container" id="top40_right_cash"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div id="bottom50_title_cash"></div>
+                          <div class="people-container-left" id="bottom50_cash"></div>
+                        </div>
+                        <div class="col">
+                          <div id="bottom50_title_right_cash"></div>
+                          <div class="people-container" id="bottom50_right_cash"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
+                </div>
+                <!-- /.chart-responsive -->
+              </div>
+            </div>
           </div>
           <!-- /.col -->
         </div>
+      </div>
         <!-- /.row -->
 
         

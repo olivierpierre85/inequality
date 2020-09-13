@@ -46,30 +46,38 @@ $( document ).ready(function() {
 
     //Get countries and date
     for(var i = 0; i < data.length; i++) {
-        $('.country-list').append('<option value='+i+'>' + data[i].country + " - " + data[i].year +'</option>');
+        $('#country-list').append('<option value='+i+'>' + data[i].country + " - " + data[i].year +'</option>');
      }
 
-    $('#country-list').on('change', function() {
-        alert( this.value );
+     for(var i = 0; i < data.length; i++) {
+         if (i == 1) {
+            $('#country-list-right').append('<option value='+i+' selected>' + data[i].country + " - " + data[i].year +'</option>');
+         } else {
+            $('#country-list-right').append('<option value='+i+'>' + data[i].country + " - " + data[i].year +'</option>');
+         }
+
+     }
+
+    $('.country-list').on('change', function() {
+        var l = $('#country-list').val();
+        var r = $('#country-list-right').val();
+        empty_charts();
+        create_charts(data[l],data[r]);
     });
 
-    $('#country-list').on('change', function() {
-        alert( this.value );
-    });
+    create_charts(data[0],data[1]);
 
-    create_chart(data[0],data[1]);
-
-    function create_chart(left,right){
+    function create_charts(left,right){
 
         var divider = 3;//use for size adjustement
         var cash_size = 25;
         var cash_value = 1000;
 
         //TITLES
-        $("#top1_title").append(create_title_card("for 1 person","success",left.top1.monthly,left.top1.percentage,0))
-        $("#top9_title").append(create_title_card("for 9 persons","info",left.top9.monthly,left.top9.percentage,0))
-        $("#top40_title").append(create_title_card("for 40 persons","warning",left.top40.monthly,left.top40.percentageo,0))
-        $("#bottom50_title").append(create_title_card("for 50 persons","red",left.bottom50.monthly,left.bottom50.percentage,0))
+        $("#top1_title").append(create_title_card("for the richest person","success",left.top1.monthly,left.top1.percentage,0))
+        $("#top9_title").append(create_title_card("for the next 9 persons","info",left.top9.monthly,left.top9.percentage,0))
+        $("#top40_title").append(create_title_card("for 40 persons in the middle","warning",left.top40.monthly,left.top40.percentageo,0))
+        $("#bottom50_title").append(create_title_card("for the poorest 50 persons","red",left.bottom50.monthly,left.bottom50.percentage,0))
 
         $("#top1_title_right").append(create_title_card("for 1 person","success",right.top1.monthly,top1.percentage,1))
         $("#top9_title_right").append(create_title_card("for 9 persons","info",right.top9.monthly,top9.percentage,1))
@@ -94,8 +102,25 @@ $( document ).ready(function() {
         for (let step = 0; step < 50; step++) 
             $("#bottom50_right").append("<img src='./static/man_icon_crop.png' class='people' alt='man' style='width:" + Math.sqrt(right.bottom50.monthly)/divider + "px;'>");
 
-
         // Cash Pile  
+
+        //TITLES
+        var country_name = left.country + " - " + left.year;
+        var country_name_right = right.country + " - " + right.year;
+        $("#top1_title_cash").append('<div>' + country_name + '</div>');
+        $("#top1_title_right_cash").append('<div class="text-right">' + country_name_right + '</div>');
+
+        $("#top1_title_cash").append(create_title_card("The richest Person gets","success",left.top1.monthly,left.top1.percentage,0))
+        $("#top9_title_cash").append(create_title_card("9 persons share","info",left.top9.monthly * 9,left.top9.percentage,0))
+        $("#top40_title_cash").append(create_title_card("40 persons share","warning",left.top40.monthly * 40,left.top40.percentageo,0))
+        $("#bottom50_title_cash").append(create_title_card("50 persons share","red",left.bottom50.monthly * 50,left.bottom50.percentage,0))
+
+        $("#top1_title_right_cash").append(create_title_card("for 1 person","success",right.top1.monthly,top1.percentage,1))
+        $("#top9_title_right_cash").append(create_title_card("for 9 persons","info",right.top9.monthly * 9,top9.percentage,1))
+        $("#top40_title_right_cash").append(create_title_card("for 40 persons","warning",right.top40.monthly * 40,top40.percentage,1))
+        $("#bottom50_title_right_cash").append(create_title_card("for 50 persons","red",right.bottom50.monthly * 50,bottom50.percentage,1))
+
+        $("#income-repartition-progress").append(create_progress_bar());
         total = (1 * left.top1.monthly) / cash_value;
         for (let step = 0; step < total; step++)  
             $("#top1_cash").append("<img src='./static/cash.png' class='people' alt='man' style='width:" + cash_size + "px;height:" + "auto" + ";'>");
@@ -122,8 +147,29 @@ $( document ).ready(function() {
         for (let step = 0; step < total; step++) 
             $("#bottom50_right_cash").append("<img src='./static/cash.png' class='people' alt='man' style='width:" + cash_size + "px;'>");
 
-        // Cash Pile     
+        // Cash Pile 
+    }
 
+    function empty_charts(){
+        $("#top1").empty();
+        $("#top9").empty();
+        $("#top40").empty();
+        $("#bottom50").empty();
+
+        $("#top1_title").empty();
+        $("#top9_title").empty();
+        $("#top40_title").empty();
+        $("#bottom50_title").empty();
+
+        $("#top1_right").empty();
+        $("#top9_right").empty();
+        $("#top40_right").empty();
+        $("#bottom50_right").empty();
+
+        $("#top1_title_right").empty();
+        $("#top9_title_right").empty();
+        $("#top40_title_right").empty();
+        $("#bottom50_title_right").empty();
     }
 
     //Compute for progress bar (width?)
