@@ -74,15 +74,15 @@ $( document ).ready(function() {
         var cash_value = 1000;
 
         //TITLES
-        $("#top1_title").append(create_title_card("for the richest person","success",left.top1.monthly,left.top1.percentage,0))
-        $("#top9_title").append(create_title_card("for the next 9 persons","info",left.top9.monthly,left.top9.percentage,0))
-        $("#top40_title").append(create_title_card("for 40 persons in the middle","warning",left.top40.monthly,left.top40.percentageo,0))
-        $("#bottom50_title").append(create_title_card("for the poorest 50 persons","red",left.bottom50.monthly,left.bottom50.percentage,0))
+        $("#top1_title").append(create_title_card("For the richest person","success",left.top1.monthly,left.top1.percentage,0))
+        $("#top9_title").append(create_title_card("For the next 9 persons","info",left.top9.monthly,left.top9.percentage,0))
+        $("#top40_title").append(create_title_card("For the 40 persons in the middle","warning",left.top40.monthly,left.top40.percentageo,0))
+        $("#bottom50_title").append(create_title_card("For the poorest 50 persons","red",left.bottom50.monthly,left.bottom50.percentage,0))
 
-        $("#top1_title_right").append(create_title_card("for 1 person","success",right.top1.monthly,top1.percentage,1))
-        $("#top9_title_right").append(create_title_card("for 9 persons","info",right.top9.monthly,top9.percentage,1))
-        $("#top40_title_right").append(create_title_card("for 40 persons","warning",right.top40.monthly,top40.percentage,1))
-        $("#bottom50_title_right").append(create_title_card("for 50 persons","red",right.bottom50.monthly,bottom50.percentage,1))
+        $("#top1_title_right").append(create_title_card("For the richest person","success",right.top1.monthly,top1.percentage,1))
+        $("#top9_title_right").append(create_title_card("For the next 9 persons","info",right.top9.monthly,top9.percentage,1))
+        $("#top40_title_right").append(create_title_card("For the 40 persons in the middle","warning",right.top40.monthly,top40.percentage,1))
+        $("#bottom50_title_right").append(create_title_card("For the poorest 50 persons","red",right.bottom50.monthly,bottom50.percentage,1))
         
         //PEOPLE
         
@@ -110,15 +110,15 @@ $( document ).ready(function() {
         $("#top1_title_cash").append('<div>' + country_name + '</div>');
         $("#top1_title_right_cash").append('<div class="text-right">' + country_name_right + '</div>');
 
-        $("#top1_title_cash").append(create_title_card("The richest Person gets","success",left.top1.monthly,left.top1.percentage,0))
-        $("#top9_title_cash").append(create_title_card("9 persons share","info",left.top9.monthly * 9,left.top9.percentage,0))
-        $("#top40_title_cash").append(create_title_card("40 persons share","warning",left.top40.monthly * 40,left.top40.percentageo,0))
-        $("#bottom50_title_cash").append(create_title_card("50 persons share","red",left.bottom50.monthly * 50,left.bottom50.percentage,0))
+        $("#top1_title_cash").append(create_title_card("The richest person gets","success",left.top1.monthly,left.top1.percentage,0))
+        $("#top9_title_cash").append(create_title_card("The next 9 persons share","info",left.top9.monthly * 9,left.top9.percentage,0))
+        $("#top40_title_cash").append(create_title_card("The 40 persons in the middle share","warning",left.top40.monthly * 40,left.top40.percentageo,0))
+        $("#bottom50_title_cash").append(create_title_card("The poorest 50 persons share","red",left.bottom50.monthly * 50,left.bottom50.percentage,0))
 
-        $("#top1_title_right_cash").append(create_title_card("for 1 person","success",right.top1.monthly,top1.percentage,1))
-        $("#top9_title_right_cash").append(create_title_card("for 9 persons","info",right.top9.monthly * 9,top9.percentage,1))
-        $("#top40_title_right_cash").append(create_title_card("for 40 persons","warning",right.top40.monthly * 40,top40.percentage,1))
-        $("#bottom50_title_right_cash").append(create_title_card("for 50 persons","red",right.bottom50.monthly * 50,bottom50.percentage,1))
+        $("#top1_title_right_cash").append(create_title_card("The richest person gets","success",right.top1.monthly,top1.percentage,1))
+        $("#top9_title_right_cash").append(create_title_card("The next 9 persons share","info",right.top9.monthly * 9,top9.percentage,1))
+        $("#top40_title_right_cash").append(create_title_card("The 40 persons in the middle share","warning",right.top40.monthly * 40,top40.percentage,1))
+        $("#bottom50_title_right_cash").append(create_title_card("he poorest 50 persons share","red",right.bottom50.monthly * 50,bottom50.percentage,1))
 
         $("#income-repartition-progress").append(create_progress_bar());
         total = (1 * left.top1.monthly) / cash_value;
@@ -170,6 +170,26 @@ $( document ).ready(function() {
         $("#top9_title_right").empty();
         $("#top40_title_right").empty();
         $("#bottom50_title_right").empty();
+        //cash
+        $("#top1_cash").empty();
+        $("#top9_cash").empty();
+        $("#top40_cash").empty();
+        $("#bottom50_cash").empty();
+
+        $("#top1_title_cash").empty();
+        $("#top9_title_cash").empty();
+        $("#top40_title_cash").empty();
+        $("#bottom50_title_cash").empty();
+
+        $("#top1_right_cash").empty();
+        $("#top9_right_cash").empty();
+        $("#top40_right_cash").empty();
+        $("#bottom50_right_cash").empty();
+
+        $("#top1_title_right_cash").empty();
+        $("#top9_title_right_cash").empty();
+        $("#top40_title_right_cash").empty();
+        $("#bottom50_title_right_cash").empty();
     }
 
     //Compute for progress bar (width?)
