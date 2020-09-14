@@ -1,6 +1,27 @@
 $( document ).ready(function() {
     //TODO get values from Api
-    data = [{
+    data = [ {
+            "country":"Belgium",
+            "year":"1980",
+            "average_income":26093,
+            "top1":{
+                "monthly":15547,
+                "percentage":7.15
+            },
+            "top9":{
+                "monthly":5486,
+                "percentage":22.70
+            },
+            "top40":{
+                "monthly":2572,
+                "percentage":47.33
+            },
+            "bottom50":{
+                "monthly":992,
+                "percentage":22.82
+            }
+        },
+        {
             "country":"Belgium",
             "year":"2017",
             "average_income":41635,
@@ -41,6 +62,69 @@ $( document ).ready(function() {
                 "monthly":1129,
                 "percentage":12.67
             }
+        },
+        {
+            "country":"USA",
+            "year":"1950",
+            "average_income":16976,
+            "top1":{
+                "monthly":24460,
+                "percentage":17.29
+            },
+            "top9":{
+                "monthly":3455,
+                "percentage":21.97
+            },
+            "top40":{
+                "monthly":1537,
+                "percentage":43.46
+            },
+            "bottom50":{
+                "monthly":496,
+                "percentage":17.55
+            }
+        },
+        {
+            "country":"USA",
+            "year":"1980",
+            "average_income":30984,
+            "top1":{
+                "monthly":28866,
+                "percentage":11.18
+            },
+            "top9":{
+                "monthly":6744,
+                "percentage":23.50
+            },
+            "top40":{
+                "monthly":2940,
+                "percentage":45.55
+            },
+            "bottom50":{
+                "monthly":1019,
+                "percentage":19.74
+            }
+        },
+        {
+            "country":"Example - Full Equality",
+            "year":"3000",
+            "average_income":100000,
+            "top1":{
+                "monthly":2174,
+                "percentage":1
+            },
+            "top9":{
+                "monthly":2174,
+                "percentage":9
+            },
+            "top40":{
+                "monthly":2174,
+                "percentage":40
+            },
+            "bottom50":{
+                "monthly":2174,
+                "percentage":50
+            }
         }
     ];
 
@@ -55,7 +139,6 @@ $( document ).ready(function() {
          } else {
             $('#country-list-right').append('<option value='+i+'>' + data[i].country + " - " + data[i].year +'</option>');
          }
-
      }
 
     $('.country-list').on('change', function() {
@@ -120,7 +203,6 @@ $( document ).ready(function() {
         $("#top40_title_right_cash").append(create_title_card("The 40 persons in the middle share","warning",right.top40.monthly * 40,top40.percentage,1))
         $("#bottom50_title_right_cash").append(create_title_card("he poorest 50 persons share","red",right.bottom50.monthly * 50,bottom50.percentage,1))
 
-        $("#income-repartition-progress").append(create_progress_bar());
         total = (1 * left.top1.monthly) / cash_value;
         for (let step = 0; step < total; step++)  
             $("#top1_cash").append("<img src='./static/cash.png' class='people' alt='man' style='width:" + cash_size + "px;height:" + "auto" + ";'>");
@@ -147,7 +229,16 @@ $( document ).ready(function() {
         for (let step = 0; step < total; step++) 
             $("#bottom50_right_cash").append("<img src='./static/cash.png' class='people' alt='man' style='width:" + cash_size + "px;'>");
 
-        // Cash Pile 
+        // end Cash Pile 
+
+
+        //Progress repartition
+        $("#progress_country_title").append(left.country + " - " + left.year);
+        $("#progress_country_right_title").append(right.country + " - " + right.year);
+
+        $("#progress_country").append(create_progress_bar(left));
+        $("#progress_country_right").append(create_progress_bar(right));
+
     }
 
     function empty_charts(){
@@ -190,6 +281,13 @@ $( document ).ready(function() {
         $("#top9_title_right_cash").empty();
         $("#top40_title_right_cash").empty();
         $("#bottom50_title_right_cash").empty();
+
+        //Progress
+        $("#progress_country").empty();
+        $("#progress_country_right").empty();
+
+        $("#progress_country_title").empty();
+        $("#progress_country_right_title").empty();
     }
 
     //Compute for progress bar (width?)
@@ -204,7 +302,7 @@ $( document ).ready(function() {
                     <span class="info-box-text text-right">
                     ` + title +  `
                     </span>
-                    <span class="info-box-number" style="font-size:xxx-large;">$ ` 
+                    <span class="info-box-number" style="font-size:xxx-large;">€ ` 
                     + monthly.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); +  
                     `</span>
                 </div>
@@ -236,7 +334,7 @@ $( document ).ready(function() {
                     <span class="info-box-text">
                     ` + title +  `
                     </span>
-                    <span class="info-box-number text-right" style="font-size:xxx-large;">$ ` 
+                    <span class="info-box-number text-right" style="font-size:xxx-large;">€ ` 
                     + monthly.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); +  
                     ` </span>
                 </div>
@@ -247,18 +345,16 @@ $( document ).ready(function() {
 
     }
 
-    function create_progress_bar(){
-        var title_card = `
-        <p class="text-center">
-        <strong>Répartition :</strong>
-        </p>      
+    function create_progress_bar(values){
+        var progress_bar= `
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: ` + values.top1.percentage +  `%" aria-valuenow="` + values.top1.percentage +  `" aria-valuemin="0" aria-valuemax="100">TOP 1% : ` + values.top1.percentage +  `%</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: ` + values.top9.percentage +  `%" aria-valuenow="` + values.top9.percentage +  `" aria-valuemin="0" aria-valuemax="100">TOP 9% : ` + values.top9.percentage +  `%</div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: ` + values.top40.percentage +  `%" aria-valuenow="` + values.top40.percentage +  `" aria-valuemin="0" aria-valuemax="100">Middle 40% : ` + values.top40.percentage +  `%</div>
+            <div class="progress-bar bg-red" role="progressbar" style="width: ` + values.bottom50.percentage +  `%" aria-valuenow="` + values.bottom50.percentage +  `" aria-valuemin="0" aria-valuemax="100">Bottom 50% : ` + values.bottom50.percentage +  `%</div>
         </div>
         `;	
+        return progress_bar;
     }
 
 });
